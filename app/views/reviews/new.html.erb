@@ -1,0 +1,9 @@
+<h1>Submit your review!</h1>
+
+<%= form_for(@review) do |r|%>
+  <%= f.label :comment %>
+  <%= f.text_field :comment %>
+  <%= f.label :rating %>
+  <%= f.number_field :rating %>
+  <%= f.submit "Submit." %>
+<% end %>

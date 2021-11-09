@@ -29,3 +29,13 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+
+# Ignore all logfiles and tempfiles.
+/log/*
+/tmp/*
+/tmp/pids/*              # this line
+!/log/.keep
+!/tmp/.keep
+!/tmp/pids               # this line
+!/tmp/pids/.keep         # and this line
