@@ -2,4 +2,4 @@
 <h2>Author: <%= @book.author%> </h2>
 <h2>Genre: <%= @book.genre%> </h2>
 
-<%= link_to "Review a book", new_review_path =%>
+<a href="/books/<%= @book.id %>/reviews/new"> Review Book </a>

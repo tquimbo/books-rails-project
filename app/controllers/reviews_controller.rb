@@ -1,9 +1,17 @@
 class ReviewsController < ApplicationController
 
+
+  def index
+   
+      @reviews = Review.all
+ 
+  end
+
     def new 
-        @book = Book.find_by_id(params[:id])
+        if @book = Book.find_by_id(params[:book_id])
         @review = @book.reviews.build
     end
+  end
     
     def create
       @review = current_user.reviews.build(review_params)
@@ -18,14 +26,10 @@ class ReviewsController < ApplicationController
         @review = Review.find_by_id(params[:id])
     end
     
-    def index
-      @reviews = Review.all
-    end
-
     private
 
     def review_params
-        params.require(:review).permit( :comment, :rating )
+        params.require(:review).permit( :comment, :rating, :book_id )
     end
   
   
