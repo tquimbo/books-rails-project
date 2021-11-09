@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
 
     end
     
-    def delete 
+    def destory 
         session.delete(:user_id)
         redirect_to '/'
     end 
