@@ -1,5 +1,13 @@
 class BooksController < ApplicationController
 
+    def index
+        redirect_to new_book_path
+    end
+
+    def all
+        @books = Book.all
+    end
+
     def new 
         @book = Book.new
     end
@@ -14,9 +22,11 @@ class BooksController < ApplicationController
     end
 
     def show
-        redirect_if_not_logged_in
-        @user = User.find_by_id(params[:id])
-        redirect_to '/' if !@user
+        @book = Book.find_by(id: params[:id])
+    if !@book
+      flash[:error] = "Unauthorized."
+      redirect_to book_path(@book)
+        end
     end
 
 
