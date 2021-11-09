@@ -1,9 +1,11 @@
 <h1>Login!</h1>
 
-<form action="/sessions" method="post">
-  <label for="username">Username:</label><br>
-  <input type="text" id="username" name="username"><br>
-  <label for="password">Password:</label><br>
-  <input type="password" id="password" name="password"><br>
-  <input type="submit" value="Login!">
-</form>
+<p><%= flash[:error] %></p>
+
+<%= form_for(:user) do |f|%>
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+  <%= f.submit "Log In" %>
+<% end %>
