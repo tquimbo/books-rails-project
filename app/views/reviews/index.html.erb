@@ -1,10 +1,11 @@
-
+<h1> Books </h1>
 
 <% @reviews.each do |review| %>
 
   <li>
-    <%= review.book.name%>: Rating: <%= review.rating%> <%= link_to "Learn More", review_path(review)%> 
-  </li> <br>
+    <%= review.book.name%> <br> Rating: <%= review.rating%> - <%= link_to "Learn More", review_path(review)%> 
+  </li> 
+  <br>
 
 <% end %>
 </ul>
