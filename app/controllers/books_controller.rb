@@ -10,6 +10,7 @@ class BooksController < ApplicationController
     
     def create
         @book = Book.new(book_params)
+        @book.user_id = session[:user_id]
         if @book.save
             redirect_to book_path(@book)
         else
@@ -21,7 +22,7 @@ class BooksController < ApplicationController
         @book = Book.find_by(id: params[:id])
     if !@book
       flash[:error] = "Unauthorized."
-      redirect_to book_path(@book)
+      redirect_to new_book_path(@book)
         end
     end
 
