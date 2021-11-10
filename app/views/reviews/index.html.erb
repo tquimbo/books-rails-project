@@ -1,3 +1,10 @@
-<h1> All the reviews </h1>
 
 
+<% @reviews.each do |review| %>
+
+  <li>
+    <%= review.book.name%>: Rating: <%= review.rating%> <%= link_to "Learn More", review_path(review)%> 
+  </li> <br>
+
+<% end %>
+</ul>

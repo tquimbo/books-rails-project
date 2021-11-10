@@ -18,26 +18,22 @@ class ReviewsController < ApplicationController
     end
   end
     
-  def index
-    # if params[:book_id]
-    #   @book = Book.find_by_id(params[:book_id]) 
-    #   @reviews = @book.reviews
-    # else
-    # @reviews = Review.all
-    # end
-  end
-
-    
-    def show
+  def show
       @review = Review.find_by(id: params[:id])
-      @book = Book.find_by(id: params[:id])
+      @book = Book.find_by_id(params[:book_id])
       if !@review
         flash[:error] = "Unauthorized."
         redirect_to new_book_path(@review)
           end
-    end
+  end
 
-  
+    def index
+      if @book = Book.find_by_id(params[:book_id])
+        @reviews = @book.reviews
+      else
+        @reviews = Review.all
+      end
+  end
   
     
     private
