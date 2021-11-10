@@ -29,8 +29,15 @@ class ReviewsController < ApplicationController
 
     
     def show
-        @reviews = Review.find_by_id(params[:id])
+      @review = Review.find_by(id: params[:id])
+      if !@review
+        flash[:error] = "Unauthorized."
+        redirect_to new_book_path(@review)
+          end
     end
+
+  
+  
     
     private
 
