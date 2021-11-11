@@ -1,12 +1,16 @@
-<%= render partial: 'layouts/errors', locals: {object: @users}  %>
+  <%= render partial: "layouts/errors", locals: {object: @user} %>
 
+  <h1 class="brand head">Sign Up</h1><br>
 
-<h1>Sign up!</h1>
+  <%= form_for(@user) do |f| %>
 
-<%= form_for(@user) do |f|%>
-  <%= f.label :username %>
-  <%= f.text_field :username %>
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  <%= f.submit "Sign Up" %>
-<% end %>
+    <%= f.label :username %><br>
+    <%= f.text_field :username %><br><p class="smol"></p>
+    
+    <%= f.label :password %><br>
+    <%= f.password_field :password %><br>
+    <br>
+    <%= f.submit "Create an Account" %>
+  <% end %><h3></h3><br>
+
+  <p><a class="black no_underline main brand" href="/">Go Back</a></p>
