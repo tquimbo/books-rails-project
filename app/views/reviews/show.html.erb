@@ -1,6 +1,7 @@
-<p>Name: <%= @review.book.name%> </p>
-<p>Author: <%= @review.book.author%> </p>
-<p>Genre: <%= @review.book.genre%> </p>
-<p>Review: <%= @review.comment%> </p>
+
+<h3> <%= @review.book.name%> By <%= @review.book.author%> </h3>
+
 <p>Rating: <%= @review.rating%> </p>
+<p><%= @review.user.username%> : <%= @review.comment%> </p>
+
 
