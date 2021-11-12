@@ -39,3 +39,5 @@
 !/tmp/.keep
 !/tmp/pids               # this line
 !/tmp/pids/.keep         # and this line
+
+.env
