@@ -19,6 +19,8 @@ Rails.application.routes.draw do
 
 
   get '/auth/:provider/callback' => 'sessions#create'
+  OmniAuth.config.allowed_request_methods = [:post, :get]
+
 
  
    
