@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
         user = User.find_by(username: params[:user][:username])
         if user && user.authenticate(params[:user][:password])
             session[:user_id] = user.id
-            redirect_to users_path(@user)
+            redirect_to '/'
           else
             flash[:error] = "Login failed: The information provided was incorrect."
             redirect_to login_path
@@ -30,11 +30,17 @@ class SessionsController < ApplicationController
         end
       end
 
+      def show
+        redirect_if_not_logged_in
+        @user = User.find_by_id(params[:id])
+        redirect_to '/' if !@user
+    end
+
   def omniauth  # log users in with omniauth
     user = User.create_from_omniauth(auth)
     if user.valid?
       session[:user_id] = user.id
-      redirect_to songs_path
+      redirect_to books_path
     else
       flash[:error] = user.errors.full_messages.join(". ")
       redirect_to login_path

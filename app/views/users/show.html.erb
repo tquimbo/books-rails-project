@@ -1,1 +1,8 @@
-<h1>Welcome to <%= @user.username%>'s homepage! </h1>
+<h1>Welcome  <%= @user.username%>'s  to the book tracker app! Thanks for joining! </h1>
+
+<% if @user.books.any?%>
+<h3>Here are your books:</h3>
+  <% @user.books.each do |book| %>
+    <a href="/books/<%= book.id %>"><%=book.name%></a>
+  <% end %>
+  <% end %>
