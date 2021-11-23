@@ -34,7 +34,7 @@ class SessionsController < ApplicationController
     user = User.create_from_omniauth(auth)
     if user.valid?
       session[:user_id] = user.id
-      redirect_to songs_path
+      redirect_to ratings_path
     else
       flash[:error] = user.errors.full_messages.join(". ")
       redirect_to login_path
