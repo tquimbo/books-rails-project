@@ -27,7 +27,7 @@ class ReviewsController < ApplicationController
           end
   end
 
-    def index
+  def index
       if @book = Book.find_by_id(params[:book_id])
         @reviews = @book.reviews
       else
@@ -35,15 +35,10 @@ class ReviewsController < ApplicationController
       end
   end
   
-    
     private
 
     def review_params
         params.require(:review).permit( :comment, :rating, :book_id )
     end
   
-  
-
-
-    
 end
