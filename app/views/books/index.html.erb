@@ -3,7 +3,7 @@
 <% @books.each do |b| %>
 <h3> <%= b.name%> </a> </h3>
 <h5> <%= b.author%> | <%= b.genre %> </h5>
-<h5> <%= link_to "Write a review.", new_book_review_path(b.id) %> </h5>
+<h5> <%= link_to "Write a review", new_book_review_path(b.id) %> | <%= link_to "Book Reviews", book_reviews_path(b.id) %> </h5> 
 
   
 <% end %>
