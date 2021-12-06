@@ -10,7 +10,7 @@ class ReviewsController < ApplicationController
 
   def create
     @review = current_user.reviews.build(review_params)
-    @review.user_id = session[:user_id]
+    #@review.user_id = session[:user_id]
     if @review.save
       redirect_to review_path(@review)
     else
@@ -41,9 +41,6 @@ class ReviewsController < ApplicationController
     def review_params
         params.require(:review).permit( :comment, :rating, :book_id )
     end
-  
-  
-
 
     
 end
