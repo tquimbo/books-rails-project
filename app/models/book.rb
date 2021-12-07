@@ -5,10 +5,10 @@ class Book < ApplicationRecord
 
     validates :author, presence: true
 
+    scope :order_rating, -> {Book.joins(:reviews).group(:id).order('avg(rating) desc')}
+
     
-  scope :order_by_rating, -> {left_joins(:reviews).group(:id).order('avg(ratings) desc')}
-
-
+  
     
     
 
